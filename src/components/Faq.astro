@@ -1,0 +1,41 @@
+---
+const faqs = [
+  {
+    q: "査定価格はどのくらい正確ですか？",
+    a: "AIによる中古相場の推定に、楽天・Yahoo!ショッピングの実勢価格を併記します。最終判断は査定士が行う前提の「参考値」として、判断のばらつきを抑える用途に最適です。",
+  },
+  {
+    q: "専用アプリのインストールは必要ですか？",
+    a: "不要です。スマホのブラウザで開くだけ。ホーム画面に追加すればアプリのように使えます。",
+  },
+  {
+    q: "古物営業法の台帳に対応していますか？",
+    a: "成約時に相手方情報（氏名・住所・本人確認方法など）を記録し、帳簿記載事項に沿ったCSVを出力できます。※本人確認の実施や保存年限の遵守は運用側の責任となります。",
+  },
+  {
+    q: "複数店舗・複数スタッフで使えますか？",
+    a: "はい。組織・シート（利用者）単位で管理でき、招待リンクでスタッフを追加。スタッフ別の査定実績も集計されます。",
+  },
+  {
+    q: "撮影した画像や査定データはどう扱われますか？",
+    a: "査定のためにサーバー経由でAIに送信し、履歴として保存します。台帳など個人情報を含むデータは管理者のみ閲覧・出力できます。",
+  },
+];
+---
+
+<section id="faq" class="mx-auto max-w-3xl px-5 py-20">
+  <div class="text-center" data-reveal>
+    <h2 class="text-3xl font-bold tracking-tight md:text-4xl">よくある質問</h2>
+  </div>
+  <div class="mt-10 divide-y divide-slate-100 rounded-2xl border border-slate-100 bg-white">
+    {faqs.map((f) => (
+      <details class="group px-6 py-5" data-reveal>
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-medium">
+          {f.q}
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" class="shrink-0 transition-transform group-open:rotate-45"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <p class="mt-3 text-sm leading-relaxed text-slate-600">{f.a}</p>
+      </details>
+    ))}
+  </div>
+</section>

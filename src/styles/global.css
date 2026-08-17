@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Google Sans", "Noto Sans JP", ui-sans-serif, system-ui,
+    -apple-system, "Hiragino Kaku Gothic ProN", "Segoe UI", sans-serif;
+  --color-brand: #1a73e8;
+  --color-brand-600: #1765cc;
+  --color-ink: #0b1220;
+  --color-muted: #5f6b7a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Screen Studio 風のプロダクト動画枠 */
+.device-frame {
+  border-radius: 16px;
+  background: #fff;
+  box-shadow:
+    0 1px 0 rgba(16, 24, 40, 0.04),
+    0 24px 60px -20px rgba(16, 24, 40, 0.28),
+    0 8px 24px -12px rgba(16, 24, 40, 0.18);
+  border: 1px solid #eceff3;
+  overflow: hidden;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.floaty {
+  animation: floaty 6s ease-in-out infinite;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}

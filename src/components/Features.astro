@@ -1,0 +1,63 @@
+---
+const features = [
+  {
+    title: "AIカメラ査定",
+    body: "商品を撮るだけで商品を特定し、状態（新品〜難あり）に応じた推奨買取価格を提示。査定の勘を全スタッフで標準化。",
+    icon: "camera",
+  },
+  {
+    title: "バーコード（JAN）読取",
+    body: "JAN/型番を読み取り、商品特定と相場精度を向上。型番が命の中古査定に最適。",
+    icon: "scan",
+  },
+  {
+    title: "他店の実勢価格",
+    body: "楽天・Yahoo!ショッピングの平均・レンジ・件数を実データで併記。Amazon・メルカリはワンタップ検索。",
+    icon: "chart",
+  },
+  {
+    title: "推奨買取価格＋想定粗利",
+    body: "中古相場×買取率で推奨額を逆算し、想定粗利まで表示。その場で成約・見送りを記録。",
+    icon: "yen",
+  },
+  {
+    title: "査定履歴・ダッシュボード",
+    body: "成約率・買取総額・カテゴリ別・スタッフ別を集計。履歴は詳細まで遡れCSV出力も。",
+    icon: "list",
+  },
+  {
+    title: "古物台帳（法対応）",
+    body: "成約時に相手方情報を記録し、古物営業法の帳簿記載事項でCSV出力。台帳作成の手間を削減。",
+    icon: "book",
+  },
+];
+
+const icons: Record<string, string> = {
+  camera: '<path d="M4 8V7a2 2 0 0 1 2-2h1l1-1.5h6L17 5h1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8Z"/><circle cx="12" cy="12" r="3.2"/>',
+  scan: '<path d="M4 7V5a1 1 0 0 1 1-1h2M17 4h2a1 1 0 0 1 1 1v2M20 17v2a1 1 0 0 1-1 1h-2M7 20H5a1 1 0 0 1-1-1v-2"/><path d="M7 8v8M10 8v8M13 8v8M16 8v8"/>',
+  chart: '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+  yen: '<path d="M12 3v18M6 3l6 8 6-8M8 12h8M8 16h8"/>',
+  list: '<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>',
+  book: '<path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 0 2 2h12"/>',
+};
+---
+
+<section id="features" class="border-t border-slate-100 bg-slate-50/60">
+  <div class="mx-auto max-w-6xl px-5 py-20">
+    <div class="mx-auto max-w-2xl text-center" data-reveal>
+      <h2 class="text-3xl font-bold tracking-tight md:text-4xl">査定から記帳まで、これ一つ</h2>
+      <p class="mt-4 text-slate-600">現場のスマホで完結。相場の根拠も、法対応の台帳も、あとから見返せます。</p>
+    </div>
+    <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {features.map((f) => (
+        <div class="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm" data-reveal>
+          <span class="grid size-11 place-items-center rounded-xl bg-brand/10 text-brand">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={icons[f.icon]} />
+          </span>
+          <h3 class="mt-4 text-lg font-semibold">{f.title}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">{f.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

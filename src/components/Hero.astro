@@ -1,0 +1,70 @@
+---
+const appUrl = "https://genka-camera.vercel.app";
+---
+
+<section id="top" class="relative overflow-hidden">
+  <!-- 背景の淡いグラデ -->
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute left-1/2 top-[-10%] h-[420px] w-[820px] -translate-x-1/2 rounded-full bg-brand/10 blur-3xl"></div>
+  </div>
+
+  <div class="mx-auto max-w-6xl px-5 pt-16 pb-10 text-center md:pt-24">
+    <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600">
+      <span class="size-1.5 rounded-full bg-emerald-500"></span>
+      リユース・買取店向け AI査定アシスト
+    </span>
+    <h1 class="mx-auto mt-6 max-w-3xl text-4xl font-bold leading-[1.15] tracking-tight md:text-6xl">
+      かざすだけで、<br class="hidden sm:block" />
+      <span class="text-brand">買取価格</span>がわかる。
+    </h1>
+    <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg">
+      商品を撮るだけで、中古相場・推奨買取価格・想定粗利をその場で算出。
+      楽天／Yahoo!の実勢価格、査定履歴、古物台帳CSVまで。査定のばらつきと属人化をなくします。
+    </p>
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+      <a href="#cta" class="rounded-xl bg-brand px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-600">
+        無料で相談する
+      </a>
+      <a href="#how" class="rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50">
+        使い方を見る
+      </a>
+    </div>
+    <p class="mt-3 text-xs text-slate-400">クレジットカード不要・スマホのブラウザですぐ試せます</p>
+  </div>
+
+  <!-- Screen Studio 風 プロダクト動画 -->
+  <div class="mx-auto max-w-5xl px-5 pb-20">
+    <div class="device-frame floaty" data-reveal>
+      <!-- ブラウザ風バー -->
+      <div class="flex items-center gap-2 border-b border-slate-100 bg-slate-50 px-4 py-2.5">
+        <span class="size-3 rounded-full bg-[#ff5f57]"></span>
+        <span class="size-3 rounded-full bg-[#febc2e]"></span>
+        <span class="size-3 rounded-full bg-[#28c840]"></span>
+        <span class="mx-auto rounded-md bg-white px-3 py-1 text-xs text-slate-400">genka-camera.vercel.app</span>
+      </div>
+      <!-- 動画（差し替え可能）。media/demo.mp4 を置けば自動再生ループ -->
+      <div class="relative aspect-[16/10] bg-slate-100">
+        <video
+          class="h-full w-full object-cover"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="/media/demo-poster.svg"
+        >
+          <source src="/media/demo.mp4" type="video/mp4" />
+        </video>
+        <!-- demo.mp4 未設置時のフォールバック表示 -->
+        <div class="pointer-events-none absolute inset-0 grid place-items-center">
+          <div class="rounded-full bg-white/70 px-4 py-2 text-xs text-slate-500 backdrop-blur">
+            ▶ デモ動画（デモ収録後に /public/media/demo.mp4 を差し替え）
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ロゴ的な信頼バー（プレースホルダ） -->
+    <p class="mt-8 text-center text-xs uppercase tracking-widest text-slate-400">
+      リユース／買取／リサイクル店の査定業務に
+    </p>
+  </div>
+</section>

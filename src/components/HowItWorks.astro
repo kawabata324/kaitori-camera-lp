@@ -1,0 +1,23 @@
+---
+const steps = [
+  { n: "01", title: "商品をかざす", body: "スマホのカメラで商品を撮影。バーコードがあれば自動で読み取ります。" },
+  { n: "02", title: "状態を選ぶ", body: "新品〜難ありから状態を選択。AIが中古相場と推奨買取価格を即算出します。" },
+  { n: "03", title: "成約・記帳", body: "その場で成約金額を確定。相手方情報を入れれば古物台帳に自動で記帳されます。" },
+];
+---
+
+<section id="how" class="mx-auto max-w-6xl px-5 py-20">
+  <div class="mx-auto max-w-2xl text-center" data-reveal>
+    <h2 class="text-3xl font-bold tracking-tight md:text-4xl">3ステップで、査定が終わる</h2>
+    <p class="mt-4 text-slate-600">研修コストを抑え、新人でも一定品質の査定を。</p>
+  </div>
+  <div class="mt-14 grid gap-6 md:grid-cols-3">
+    {steps.map((s) => (
+      <div class="relative rounded-2xl border border-slate-100 bg-white p-7" data-reveal>
+        <span class="text-4xl font-bold text-brand/20">{s.n}</span>
+        <h3 class="mt-2 text-lg font-semibold">{s.title}</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-600">{s.body}</p>
+      </div>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,21 @@
+---
+const appUrl = "https://genka-camera.vercel.app";
+---
+
+<footer class="border-t border-slate-100">
+  <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 py-10 text-sm text-slate-500 sm:flex-row">
+    <div class="flex items-center gap-2">
+      <span class="grid size-7 place-items-center rounded-md bg-brand text-white">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3.2"/><path d="M4 8V6a2 2 0 0 1 2-2h2"/></svg>
+      </span>
+      <span class="font-semibold text-slate-700">買取カメラ</span>
+    </div>
+    <nav class="flex flex-wrap items-center justify-center gap-5">
+      <a href="#features" class="hover:text-slate-800">機能</a>
+      <a href="#pricing" class="hover:text-slate-800">料金</a>
+      <a href="#faq" class="hover:text-slate-800">FAQ</a>
+      <a href={appUrl + "/login"} class="hover:text-slate-800">ログイン</a>
+    </nav>
+    <p class="text-xs text-slate-400">© 2026 買取カメラ</p>
+  </div>
+</footer>

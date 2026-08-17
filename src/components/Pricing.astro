@@ -1,0 +1,60 @@
+---
+// 料金は想定。確定していないため「参考」と明記。
+const plans = [
+  {
+    name: "スターター",
+    price: "¥0",
+    unit: "/ お試し",
+    desc: "まず現場で試したい小規模店向け",
+    features: ["1店舗・少人数シート", "AIカメラ査定", "他店相場（楽天/Yahoo!）", "査定履歴・CSV"],
+    cta: "無料で試す",
+    highlight: false,
+  },
+  {
+    name: "ビジネス",
+    price: "要問い合わせ",
+    unit: "/ シート課金",
+    desc: "複数スタッフ・複数店舗の運用に",
+    features: ["シート単位のメンバー管理", "古物台帳エクスポート", "ダッシュボード集計", "優先サポート"],
+    cta: "相談する",
+    highlight: true,
+  },
+];
+---
+
+<section id="pricing" class="border-t border-slate-100 bg-slate-50/60">
+  <div class="mx-auto max-w-6xl px-5 py-20">
+    <div class="mx-auto max-w-2xl text-center" data-reveal>
+      <h2 class="text-3xl font-bold tracking-tight md:text-4xl">料金</h2>
+      <p class="mt-4 text-slate-600">シート（利用者）単位のシンプルな課金。まずは無料でお試しください。</p>
+    </div>
+    <div class="mx-auto mt-14 grid max-w-3xl gap-6 md:grid-cols-2">
+      {plans.map((p) => (
+        <div
+          class={`rounded-2xl border bg-white p-7 ${p.highlight ? "border-brand shadow-lg ring-1 ring-brand/20" : "border-slate-100 shadow-sm"}`}
+          data-reveal
+        >
+          {p.highlight && <span class="mb-3 inline-block rounded-full bg-brand/10 px-3 py-1 text-xs font-semibold text-brand">おすすめ</span>}
+          <h3 class="text-lg font-semibold">{p.name}</h3>
+          <p class="mt-1 text-sm text-slate-500">{p.desc}</p>
+          <div class="mt-5 flex items-end gap-1">
+            <span class="text-3xl font-bold">{p.price}</span>
+            <span class="pb-1 text-sm text-slate-500">{p.unit}</span>
+          </div>
+          <ul class="mt-6 space-y-3">
+            {p.features.map((f) => (
+              <li class="flex items-start gap-2 text-sm text-slate-700">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#1a73e8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0"><path d="M20 6 9 17l-5-5"/></svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+          <a href="#cta" class={`mt-7 block rounded-xl px-4 py-3 text-center text-sm font-semibold transition-colors ${p.highlight ? "bg-brand text-white hover:bg-brand-600" : "border border-slate-200 text-slate-700 hover:bg-slate-50"}`}>
+            {p.cta}
+          </a>
+        </div>
+      ))}
+    </div>
+    <p class="mt-6 text-center text-xs text-slate-400">※ 料金は参考です。正式な価格・プランは個別にご案内します。</p>
+  </div>
+</section>
