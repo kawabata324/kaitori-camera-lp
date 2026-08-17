@@ -1,15 +1,50 @@
 ---
 import "../styles/global.css";
+import { OPERATOR_NAME } from "../consts";
 
 interface Props {
   title?: string;
   description?: string;
+  /** OGP画像の相対パス（省略時はサイト共通のOGP） */
+  image?: string;
 }
 const {
   title = "買取カメラ｜かざすだけで、買取価格がわかる",
-  description = "リユース・買取店向けのAI査定アシスト。商品をかざすと中古相場・推奨買取価格・想定粗利を即算出。楽天/Yahoo!の実勢価格、査定履歴、古物台帳CSVまで。",
+  description = "リユース・買取店向けのAI査定アシスト。商品をかざすと中古相場・推奨買取価格・想定粗利を即算出。楽天/Yahoo!の実勢価格、査定履歴、古物台帳CSVまで。まずは100件まで無料のモニターを募集中。",
+  image = "/og.png",
 } = Astro.props;
-const appUrl = "https://genka-camera.vercel.app";
+
+// site は astro.config.mjs で設定済み。canonical / OGP に絶対URLで利用。
+const site = Astro.site ?? new URL("https://kaitori-camera-lp.vercel.app");
+const canonical = new URL(Astro.url.pathname, site).href;
+const ogImage = new URL(image, site).href;
+const siteName = "買取カメラ";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      name: siteName,
+      url: site.href,
+      inLanguage: "ja-JP",
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: siteName,
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "iOS, Android, Web",
+      description,
+      url: site.href,
+      offers: {
+        "@type": "Offer",
+        price: "9800",
+        priceCurrency: "JPY",
+      },
+      publisher: { "@type": "Organization", name: OPERATOR_NAME, url: site.href },
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -19,10 +54,32 @@ const appUrl = "https://genka-camera.vercel.app";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#1a73e8" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="ja_JP" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="買取カメラ｜かざすだけで、買取価格がわかる" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
     <slot name="header" />
@@ -30,7 +87,7 @@ const appUrl = "https://genka-camera.vercel.app";
       <slot />
     </main>
     <slot name="footer" />
-    <script is:inline define:vars={{ appUrl }}>
+    <script is:inline>
       // IntersectionObserver で fade-up を発火
       const io = new IntersectionObserver(
         (entries) => {
