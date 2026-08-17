@@ -9,6 +9,6 @@ export const APPLY_FORM_URL =
 
 // 運営者情報（確定後に差し替え）
 export const OPERATOR_NAME = "買取カメラ 運営";
-export const CONTACT_EMAIL = "hello@example.com";
+export const CONTACT_EMAIL = "kaitori.camera@gmail.com";
 // プライバシーポリシーの最終更新日
 export const PRIVACY_UPDATED = "2026年8月17日";
