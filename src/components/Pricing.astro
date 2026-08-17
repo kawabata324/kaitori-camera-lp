@@ -1,6 +1,6 @@
 ---
-// モニター期は「100件まで無料」を訴求。有料は件数従量・価格非公開（問い合わせ）。
-const contactHref = "mailto:hello@example.com?subject=買取カメラ%20モニター応募";
+// モニター期は「100件まで無料」を訴求。応募は Google フォームへ。
+import { APPLY_FORM_URL as contactHref } from "../consts";
 const plans = [
   {
     name: "無料モニター",
@@ -41,8 +41,9 @@ const plans = [
   <div class="mx-auto max-w-6xl px-5 py-20">
     <div class="mx-auto max-w-2xl text-center" data-reveal>
       <h2 class="text-3xl font-bold tracking-tight md:text-4xl">まずは無料モニターから</h2>
-      <p class="mt-4 text-slate-600">
-        買取カメラは招待制のサービスです。現在、<strong class="text-slate-800">100件まで無料</strong>で試せるモニター店舗を募集しています。
+      <p class="mt-4 text-slate-600" style="text-wrap: balance;">
+        <span class="inline-block">買取カメラは<span class="whitespace-nowrap">招待制のサービス</span>です。</span>
+        <span class="inline-block">現在、<strong class="text-slate-800 whitespace-nowrap">100件まで無料</strong>で試せる<span class="whitespace-nowrap">モニター店舗</span>を募集しています。</span>
       </p>
     </div>
     <div class="mx-auto mt-14 grid max-w-3xl gap-6 md:grid-cols-2">
@@ -66,7 +67,7 @@ const plans = [
               </li>
             ))}
           </ul>
-          <a href={p.href} class={`mt-7 block rounded-xl px-4 py-3 text-center text-sm font-semibold transition-colors ${p.highlight ? "bg-brand text-white hover:bg-brand-600" : "border border-slate-200 text-slate-700 hover:bg-slate-50"}`}>
+          <a href={p.href} target="_blank" rel="noopener" class={`mt-7 block rounded-xl px-4 py-3 text-center text-sm font-semibold transition-colors ${p.highlight ? "bg-brand text-white hover:bg-brand-600" : "border border-slate-200 text-slate-700 hover:bg-slate-50"}`}>
             {p.cta}
           </a>
         </div>

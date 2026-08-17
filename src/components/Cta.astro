@@ -1,5 +1,5 @@
 ---
-const appUrl = "https://genka-camera.vercel.app";
+import { APP_URL as appUrl, APPLY_FORM_URL } from "../consts";
 ---
 
 <section id="cta" class="mx-auto max-w-6xl px-5 py-20">
@@ -9,12 +9,12 @@ const appUrl = "https://genka-camera.vercel.app";
     </div>
     <div class="relative">
       <h2 class="text-3xl font-bold tracking-tight md:text-4xl">100件まで無料。モニター募集中。</h2>
-      <p class="mx-auto mt-4 max-w-xl text-slate-300">
-        相場の根拠のある買取査定を、まずは現場で。審査のうえアカウントを発行します。
-        店舗名・ご担当者・取扱ジャンルを添えてご連絡ください。
+      <p class="mx-auto mt-4 max-w-xl text-slate-300" style="text-wrap: balance;">
+        <span class="inline-block">相場の根拠のある買取査定を、まずは現場で。</span>
+        <span class="inline-block">審査のうえアカウントを発行します。</span>
       </p>
       <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-        <a href="mailto:hello@example.com?subject=買取カメラ%20モニター応募&body=店舗名：%0D%0Aご担当者：%0D%0A取扱ジャンル：%0D%0A店舗数／査定件数の目安：%0D%0A" class="rounded-xl bg-white px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-slate-100">
+        <a href={APPLY_FORM_URL} target="_blank" rel="noopener" class="rounded-xl bg-white px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-slate-100">
           無料モニターに応募
         </a>
         <a href={appUrl + "/login"} class="rounded-xl border border-white/25 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10">

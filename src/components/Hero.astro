@@ -1,5 +1,5 @@
 ---
-const appUrl = "https://genka-camera.vercel.app";
+import { APPLY_FORM_URL } from "../consts";
 ---
 
 <section id="top" class="relative overflow-hidden">
@@ -17,11 +17,13 @@ const appUrl = "https://genka-camera.vercel.app";
       <span class="inline-block">かざすだけで、</span>
       <span class="inline-block"><span class="text-brand">買取価格</span>がわかる。</span>
     </h1>
-    <p class="mx-auto mt-5 max-w-2xl px-1 text-[15px] leading-relaxed text-slate-600 md:text-lg" style="text-wrap: pretty;">
-      商品を撮るだけで、<span class="whitespace-nowrap">中古相場</span>・<span class="whitespace-nowrap">推奨買取価格</span>・<span class="whitespace-nowrap">想定粗利</span>をその場で算出。<span class="whitespace-nowrap">楽天／Yahoo!</span>の実勢価格、査定履歴、<span class="whitespace-nowrap">古物台帳CSV</span>まで。いま<strong class="text-slate-800 whitespace-nowrap">100件まで無料</strong>のモニターを募集しています。
+    <p class="mx-auto mt-5 max-w-2xl px-1 text-[15px] leading-relaxed text-slate-600 md:text-lg" style="text-wrap: balance;">
+      <span class="inline-block">商品を撮るだけで、<span class="whitespace-nowrap">中古相場</span>・<span class="whitespace-nowrap">推奨買取価格</span>・<span class="whitespace-nowrap">想定粗利</span>をその場で算出。</span>
+      <span class="inline-block"><span class="whitespace-nowrap">楽天／Yahoo!</span>の実勢価格、査定履歴、<span class="whitespace-nowrap">古物台帳CSV</span>まで。</span>
+      <span class="inline-block">いま<strong class="text-slate-800 whitespace-nowrap">100件まで無料</strong>の<span class="whitespace-nowrap">モニターを募集</span>しています。</span>
     </p>
     <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-      <a href="#cta" class="rounded-xl bg-brand px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-600">
+      <a href={APPLY_FORM_URL} target="_blank" rel="noopener" class="rounded-xl bg-brand px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-600">
         無料モニターに応募
       </a>
       <a href="#how" class="rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50">
