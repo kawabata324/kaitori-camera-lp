@@ -1,0 +1,97 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { OPERATOR_NAME, CONTACT_EMAIL, PRIVACY_UPDATED } from "../consts";
+
+const sections = [
+  {
+    h: "1. 取得する情報",
+    body: [
+      "当社は、モニター応募フォームやサービス利用にあたり、次の情報を取得します。",
+    ],
+    list: [
+      "店舗名、ご担当者名、メールアドレス、電話番号などの連絡先情報",
+      "取扱ジャンル、店舗数、想定査定件数などの事業に関する情報",
+      "サービス利用にともなう査定データ・操作ログ等の利用情報",
+    ],
+  },
+  {
+    h: "2. 利用目的",
+    body: ["取得した情報は、次の目的の範囲内で利用します。"],
+    list: [
+      "モニター利用の審査、アカウント発行、および本人確認のため",
+      "サービスの提供・運営、ご連絡・サポートのため",
+      "サービスに関するご案内のため",
+      "サービスの改善・品質向上のための分析のため",
+    ],
+  },
+  {
+    h: "3. 第三者提供",
+    body: [
+      "当社は、法令に基づく場合を除き、ご本人の同意なく個人情報を第三者へ提供しません。サービス提供に必要な範囲で、外部の情報処理サービス（クラウド・AI等）に取り扱いを委託する場合があり、その際は適切な監督を行います。",
+    ],
+    list: [],
+  },
+  {
+    h: "4. 安全管理",
+    body: [
+      "取得した情報は、利用目的の達成に必要な期間、適切に管理・保管し、漏えい・滅失・毀損の防止に努めます。不要となった情報は速やかに削除または廃棄します。",
+    ],
+    list: [],
+  },
+  {
+    h: "5. 開示・訂正・削除等の請求",
+    body: [
+      "ご本人からの保有個人データの開示・訂正・利用停止・削除等のご請求には、本人確認のうえ、法令にしたがい適切に対応します。下記のお問い合わせ先までご連絡ください。",
+    ],
+    list: [],
+  },
+  {
+    h: "6. 改定",
+    body: [
+      "本ポリシーの内容は、法令の変更やサービスの改善に応じて予告なく改定することがあります。重要な変更がある場合は、本ページ等でお知らせします。",
+    ],
+    list: [],
+  },
+];
+---
+
+<Base title="プライバシーポリシー｜買取カメラ" description="買取カメラの個人情報の取り扱いについて">
+  <Header slot="header" />
+
+  <section class="mx-auto max-w-3xl px-5 py-16">
+    <a href="/" class="text-sm text-brand hover:underline">← トップへ戻る</a>
+    <h1 class="mt-4 text-3xl font-bold tracking-tight">プライバシーポリシー</h1>
+    <p class="mt-2 text-sm text-slate-500">最終更新日：{PRIVACY_UPDATED}</p>
+
+    <p class="mt-8 leading-relaxed text-slate-700">
+      {OPERATOR_NAME}（以下「当社」）は、「買取カメラ」（以下「本サービス」）の提供にあたり、
+      利用者の個人情報を以下のとおり取り扱います。モニター応募フォームでご入力いただいた情報も本ポリシーに従って取り扱います。
+    </p>
+
+    <div class="mt-10 space-y-8">
+      {sections.map((s) => (
+        <section>
+          <h2 class="text-lg font-semibold">{s.h}</h2>
+          {s.body.map((b) => <p class="mt-2 leading-relaxed text-slate-700">{b}</p>)}
+          {s.list.length > 0 && (
+            <ul class="mt-3 list-disc space-y-1.5 pl-5 text-slate-700">
+              {s.list.map((li) => <li class="leading-relaxed">{li}</li>)}
+            </ul>
+          )}
+        </section>
+      ))}
+
+      <section>
+        <h2 class="text-lg font-semibold">お問い合わせ先</h2>
+        <div class="mt-2 rounded-xl border border-slate-100 bg-slate-50 p-5 text-sm leading-relaxed text-slate-700">
+          <p>運営者：{OPERATOR_NAME}</p>
+          <p>連絡先：<a href={`mailto:${CONTACT_EMAIL}`} class="text-brand hover:underline">{CONTACT_EMAIL}</a></p>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Base>
