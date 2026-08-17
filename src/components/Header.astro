@@ -1,5 +1,5 @@
 ---
-import { APP_URL as appUrl, APPLY_FORM_URL } from "../consts";
+import { APPLY_FORM_URL } from "../consts";
 const nav = [
   { label: "機能", href: "#features" },
   { label: "使い方", href: "#how" },
@@ -23,7 +23,6 @@ const nav = [
       {nav.map((n) => <a href={n.href} class="text-sm text-slate-600 transition-colors hover:text-slate-900">{n.label}</a>)}
     </nav>
     <div class="flex items-center gap-3">
-      <a href={appUrl + "/login"} class="hidden text-sm font-medium text-slate-700 hover:text-slate-900 sm:block">ログイン</a>
       <a href={APPLY_FORM_URL} target="_blank" rel="noopener" class="rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-600">モニターに応募</a>
     </div>
   </div>
