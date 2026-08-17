@@ -8,16 +8,17 @@ const appUrl = "https://genka-camera.vercel.app";
       <div class="absolute left-1/2 top-0 h-64 w-[640px] -translate-x-1/2 rounded-full bg-brand blur-3xl"></div>
     </div>
     <div class="relative">
-      <h2 class="text-3xl font-bold tracking-tight md:text-4xl">今日から、査定を仕組みに。</h2>
+      <h2 class="text-3xl font-bold tracking-tight md:text-4xl">100件まで無料。モニター募集中。</h2>
       <p class="mx-auto mt-4 max-w-xl text-slate-300">
-        スマホひとつで、相場の根拠のある買取査定を全スタッフに。まずは無料でお試しください。
+        相場の根拠のある買取査定を、まずは現場で。審査のうえアカウントを発行します。
+        店舗名・ご担当者・取扱ジャンルを添えてご連絡ください。
       </p>
       <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-        <a href={appUrl + "/login"} class="rounded-xl bg-white px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-slate-100">
-          アプリを開く
+        <a href="mailto:hello@example.com?subject=買取カメラ%20モニター応募&body=店舗名：%0D%0Aご担当者：%0D%0A取扱ジャンル：%0D%0A店舗数／査定件数の目安：%0D%0A" class="rounded-xl bg-white px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-slate-100">
+          無料モニターに応募
         </a>
-        <a href="mailto:hello@example.com?subject=買取カメラの相談" class="rounded-xl border border-white/25 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10">
-          導入を相談する
+        <a href={appUrl + "/login"} class="rounded-xl border border-white/25 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10">
+          既存アカウントでログイン
         </a>
       </div>
     </div>

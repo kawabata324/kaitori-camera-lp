@@ -1,23 +1,38 @@
 ---
-// 料金は想定。確定していないため「参考」と明記。
+// モニター期は「100件まで無料」を訴求。有料は件数従量・価格非公開（問い合わせ）。
+const contactHref = "mailto:hello@example.com?subject=買取カメラ%20モニター応募";
 const plans = [
   {
-    name: "スターター",
-    price: "¥0",
-    unit: "/ お試し",
-    desc: "まず現場で試したい小規模店向け",
-    features: ["1店舗・少人数シート", "AIカメラ査定", "他店相場（楽天/Yahoo!）", "査定履歴・CSV"],
-    cta: "無料で試す",
-    highlight: false,
+    name: "無料モニター",
+    price: "100件",
+    unit: "まで無料",
+    desc: "先着のモニター店舗を募集中。まず現場で試せます。",
+    features: [
+      "AIカメラ査定・バーコード読取",
+      "他店相場（楽天／Yahoo!）",
+      "査定履歴・ダッシュボード",
+      "導入サポート付き",
+    ],
+    cta: "モニターに応募",
+    href: contactHref,
+    highlight: true,
+    badge: "募集中",
   },
   {
-    name: "ビジネス",
-    price: "要問い合わせ",
-    unit: "/ シート課金",
-    desc: "複数スタッフ・複数店舗の運用に",
-    features: ["シート単位のメンバー管理", "古物台帳エクスポート", "ダッシュボード集計", "優先サポート"],
-    cta: "相談する",
-    highlight: true,
+    name: "有料プラン",
+    price: "件数従量",
+    unit: "／ お見積り",
+    desc: "モニター後、査定件数に応じたプランをご案内します。",
+    features: [
+      "月間の査定件数に応じた料金",
+      "複数店舗・シート管理",
+      "古物台帳エクスポート",
+      "優先サポート",
+    ],
+    cta: "料金を問い合わせる",
+    href: contactHref,
+    highlight: false,
+    badge: null,
   },
 ];
 ---
@@ -25,16 +40,18 @@ const plans = [
 <section id="pricing" class="border-t border-slate-100 bg-slate-50/60">
   <div class="mx-auto max-w-6xl px-5 py-20">
     <div class="mx-auto max-w-2xl text-center" data-reveal>
-      <h2 class="text-3xl font-bold tracking-tight md:text-4xl">料金</h2>
-      <p class="mt-4 text-slate-600">シート（利用者）単位のシンプルな課金。まずは無料でお試しください。</p>
+      <h2 class="text-3xl font-bold tracking-tight md:text-4xl">まずは無料モニターから</h2>
+      <p class="mt-4 text-slate-600">
+        買取カメラは招待制のサービスです。現在、<strong class="text-slate-800">100件まで無料</strong>で試せるモニター店舗を募集しています。
+      </p>
     </div>
     <div class="mx-auto mt-14 grid max-w-3xl gap-6 md:grid-cols-2">
       {plans.map((p) => (
         <div
-          class={`rounded-2xl border bg-white p-7 ${p.highlight ? "border-brand shadow-lg ring-1 ring-brand/20" : "border-slate-100 shadow-sm"}`}
+          class={`relative rounded-2xl border bg-white p-7 ${p.highlight ? "border-brand shadow-lg ring-1 ring-brand/20" : "border-slate-100 shadow-sm"}`}
           data-reveal
         >
-          {p.highlight && <span class="mb-3 inline-block rounded-full bg-brand/10 px-3 py-1 text-xs font-semibold text-brand">おすすめ</span>}
+          {p.badge && <span class="mb-3 inline-block rounded-full bg-brand/10 px-3 py-1 text-xs font-semibold text-brand">{p.badge}</span>}
           <h3 class="text-lg font-semibold">{p.name}</h3>
           <p class="mt-1 text-sm text-slate-500">{p.desc}</p>
           <div class="mt-5 flex items-end gap-1">
@@ -49,12 +66,12 @@ const plans = [
               </li>
             ))}
           </ul>
-          <a href="#cta" class={`mt-7 block rounded-xl px-4 py-3 text-center text-sm font-semibold transition-colors ${p.highlight ? "bg-brand text-white hover:bg-brand-600" : "border border-slate-200 text-slate-700 hover:bg-slate-50"}`}>
+          <a href={p.href} class={`mt-7 block rounded-xl px-4 py-3 text-center text-sm font-semibold transition-colors ${p.highlight ? "bg-brand text-white hover:bg-brand-600" : "border border-slate-200 text-slate-700 hover:bg-slate-50"}`}>
             {p.cta}
           </a>
         </div>
       ))}
     </div>
-    <p class="mt-6 text-center text-xs text-slate-400">※ 料金は参考です。正式な価格・プランは個別にご案内します。</p>
+    <p class="mt-6 text-center text-xs text-slate-400">※ 有料プランの料金は査定件数に応じて個別にご案内します（従量制）。</p>
   </div>
 </section>
