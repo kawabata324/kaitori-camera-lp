@@ -13,6 +13,20 @@ html {
   scroll-behavior: smooth;
 }
 
+/* 日本語の折り返しを賢く（文節優先→pretty フォールバック）。見出しは語途中で折らない。 */
+h1,
+h2,
+h3 {
+  word-break: auto-phrase;
+  text-wrap: balance;
+}
+p,
+li {
+  text-wrap: pretty;
+  line-break: strict;
+  overflow-wrap: anywhere;
+}
+
 body {
   font-family: var(--font-sans);
   color: var(--color-ink);
